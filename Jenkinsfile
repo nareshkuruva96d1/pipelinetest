@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage('When Example'){
+        stage('When Example') {
             when {
                 experssion {
                     BRANCH_NAME ==~ /(production|staging)/
@@ -11,7 +11,7 @@ pipeline {
                 echo "Deploying in Jenkins"
             }
         }
-        stage ('Secondstage'){
+        stage ('Secondstage') {
             steps {
                 echo "execute, irrespective of the condition"
             }
