@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        DEPLOY_TO = 'productions'
+        DEPLOY_TO = 'new'
     }
     stages {
         stage('When Example'){
