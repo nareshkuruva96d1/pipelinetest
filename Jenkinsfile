@@ -1,12 +1,16 @@
 pipeline {
     agent any
+    environment {
+        DEPLOY_TO = 'production'
+    }
     stages {
-        stage('Welcome'){
-            steps {
-                echo "This is coming from Hotfix branch"
+        stage('When Example'){
+            When {
+                environment name: 'DEPLOY_TO', value: 'production'
             }
-
+            steps {
+                echo "Deploying in Jenkins"
+            }
         }
     }
-
 }
