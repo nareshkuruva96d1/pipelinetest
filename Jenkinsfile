@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        DEPLOY_TO = 'new stage'
+        DEPLOY_TO = 'new'
     }
     stages {
         stage('When Example'){
@@ -9,7 +9,6 @@ pipeline {
                 not {
                     equals expected: "productions", actual: "${DEPLOY_TO}"
                 }
-                environment name: 'DEPLOY_TO', value: 'production'
             }
             steps {
                 echo "Deploying in Jenkins"
