@@ -11,17 +11,25 @@ pipeline {
         }
         stage ('Deploy') {
             when {
-                anyOf {
+                anyOf { 
                     expression {
                         BRANCH_NAME ==~ /(production|staging)/
                     }
-                    environment name: 'DEPLOY_TO', value: 'knaresh'
+                    environment name: 'DEPLOY_TO', value: 'production'
                 }
             }
             steps {
-                echo "Deploying in Prod Env"
+                echo "Deploying in Non-Prod Env"
             }
 
+        }
+        stage ('Prod') {
+            when {
+                buildingTag()
+            }
+            steps {
+                echo "Deploying to prod Kubernetes cluster"
+            }
         }
     }
 }
