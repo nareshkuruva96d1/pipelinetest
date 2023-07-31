@@ -2,7 +2,7 @@ pipeline {
     agent any
     parameters {
         string (
-            name: 'USR_NAME'
+            name: 'USR_NAME',
             defaultValue: 'knaresh', 
             description: 'Do enter your name'
         )
