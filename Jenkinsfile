@@ -1,39 +1,36 @@
 pipeline {
     agent any
-    environment {
-        DEPLOY_TO = "knaresh" // static, hard
-    }
     stages {
-        stage ('Example Build') {
+        stage ('Build'){
             steps {
-                echo "Executing stage !!!!!!"
+                echo "Building Maven Application"
+            }
+        }
+        stage ('Scans') {
+            parallel {
+                stage ('sonar scan') {
+                    steps {
+                        echo "******Performing Sonar Scans******"
+                        sleep 10
+                    }
+                    stage ('Fortify'){
+                        steps {
+                            echo "******Performing Fortify Scans******"
+                            sleep 10
+                        }
+                    }
+                    stage ('Trivy'){
+                        steps {
+                            echo "******Performing Container Scans******"
+                            sleep 10
+                        }
+                    }                    
+                }
             }
         }
         stage ('Deploy') {
-            when {
-                anyOf { 
-                    expression {
-                        BRANCH_NAME ==~ /(production|staging)/
-                    }
-                    environment name: 'DEPLOY_TO', value: 'knaresh'
-                }
-            }
             steps {
-                echo "Deploying in Non-Prod Env"
-            }
-
-        }
-        stage ('Prod') {
-            when {
-                //buildingTag()
-                // buildingTag will execute when we are building a tag 
-                // tag will execute only when we are executing a specific tag
-                // tag "release-*"
-                // vx.x.x, v1.2.3
-                tag pattern: "v\\d{1,2}.\\d{1,2}.\\d{1,2}", comparator: "REGEXP" 
-            }
-            steps {
-                echo "Deploying to prod Kubernetes cluster"
+                echo "Deploying to env"
             }
         }
     }
