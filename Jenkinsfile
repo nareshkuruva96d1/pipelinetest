@@ -9,7 +9,7 @@ pipeline {
                 echo "Executing stage !!!!!!"
             }
         }
-        stage (Deploy) {
+        stage ('Deploy') {
             when {
                 allOf {
                     branch 'production'
