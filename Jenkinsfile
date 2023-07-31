@@ -13,6 +13,7 @@ pipeline {
                         echo "******Performing Sonar Scans******"
                         sleep 10
                     }
+                }    
                     stage ('Fortify'){
                         steps {
                             echo "******Performing Fortify Scans******"
@@ -24,8 +25,7 @@ pipeline {
                             echo "******Performing Container Scans******"
                             sleep 10
                         }
-                    }                    
-                }
+                    }
             }
         }
         stage ('Deploy') {
