@@ -1,39 +1,16 @@
-// parallel stages
 pipeline {
     agent any
+    parameters {
+        string (
+            name: 'USR_NAME'
+            defaultValue: 'knaresh', 
+            description: 'Do enter your name'
+        )
+    }
     stages {
-        stage ('Build'){
+        stage ('Welcome') {
             steps {
-                echo "Building Maven Application"
-            }
-        }
-        stage ('Scans') {
-            failFast true            
-            parallel {
-                stage ('sonar scan') {
-                    steps {
-                        echo "******Performing Sonar Scans******"
-                        sleep 10
-                    }
-                }    
-                    stage ('Fortify'){
-                        steps {
-                            echo "******Performing Fortify Scans******"
-                            error "Trying to recreating the error message"
-                            sleep 10
-                        }
-                    }
-                    stage ('Trivy'){
-                        steps {
-                            echo "******Performing Container Scans******"
-                            sleep 10
-                        }
-                    }
-            }
-        }
-        stage ('Deploy') {
-            steps {
-                echo "Deploying to env"
+                echo "Welcome knaresh"
             }
         }
     }
