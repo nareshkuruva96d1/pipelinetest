@@ -25,7 +25,12 @@ pipeline {
         }
         stage ('Prod') {
             when {
-                buildingTag()
+                //buildingTag()
+                // buildingTag will execute when we are building a tag 
+                // tag will execute only when we are executing a specific tag
+                // tag "release-*"
+                // vx.x.x, v1.2.3
+                tag pattern: "v\\d{1,2}.\\d{1,2}.\\d{1,2}", comparator: "REGEXP" 
             }
             steps {
                 echo "Deploying to prod Kubernetes cluster"
