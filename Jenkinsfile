@@ -9,7 +9,7 @@ pipeline {
         }
         stage ('Scans') {
             parallel {
-                failfast true
+                failFast true
                 stage ('sonar scan') {
                     steps {
                         echo "******Performing Sonar Scans******"
