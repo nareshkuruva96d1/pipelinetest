@@ -1,3 +1,4 @@
+// parallel stages
 pipeline {
     agent any
     stages {
@@ -8,6 +9,7 @@ pipeline {
         }
         stage ('Scans') {
             parallel {
+                failfast true
                 stage ('sonar scan') {
                     steps {
                         echo "******Performing Sonar Scans******"
