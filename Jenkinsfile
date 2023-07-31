@@ -17,6 +17,7 @@ pipeline {
                     stage ('Fortify'){
                         steps {
                             echo "******Performing Fortify Scans******"
+                            error "Trying to recreating the error message"
                             sleep 10
                         }
                     }
