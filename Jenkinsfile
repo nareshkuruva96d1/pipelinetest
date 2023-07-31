@@ -12,7 +12,6 @@ pipeline {
         stage ('Deploy') {
             when {
                 anyOf {
-                    branch 'production'
                     expression {
                         BRANCH_NAME ==~ /(production|staging)/
                     }
