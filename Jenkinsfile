@@ -50,9 +50,9 @@
                 }
                 steps {
                     echo "Deploying to Production"
-                    echo "Welcome ${params.USR_NAME}"
-                    echo "status of approval ${params.SRE_APPROVED}"
-                    echo "This is a ${params.Release} Release"
+                    echo "Welcome ${USR_NAME}"
+                    echo "status of approval ${SRE_APPROVED}"
+                    echo "This is a ${Release} Release"
                     echo "Approved by this person: ${whoapproved}"                
                 }
 
