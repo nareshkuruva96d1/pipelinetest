@@ -12,7 +12,7 @@ pipeline {
             description: 'Is SRE approval taken for this release'            
         )
         choice(
-            choices: 'Regular\Hotfix',
+            choices: 'Regular\nHotfix',
             description: "What sort of release is this, Regular release or Hotfix ?",
             name: 'Release'           
         )
