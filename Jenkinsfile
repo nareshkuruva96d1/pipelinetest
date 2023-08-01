@@ -13,7 +13,7 @@ pipeline {
         )
         choice(
             choices: 'Regular\Hotfix',
-            description: "What sort of release is this, Regular release or Hotfix ?"
+            description: "What sort of release is this, Regular release or Hotfix ?",
             name: 'Release'           
         )
         text(
