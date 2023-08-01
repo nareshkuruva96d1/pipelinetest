@@ -11,7 +11,7 @@
                     timeout (time: 30, unit: 'SECONDS')
                 }
                 input {
-                    message: "Should i continue ??"
+                    message "Should i continue ??"
                     ok "Approved"
                     submitter "nijira"
                     submitterParametr "whoapproved"
