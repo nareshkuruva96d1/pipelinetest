@@ -21,6 +21,11 @@
                             defaultValue: 'knaresh', 
                             description: 'Do enter your name'
                         )
+                        string (
+                            name: 'CHG_Ticket',
+                            defaultValue: 'CHG1234',
+                            description: 'Do eneter the Ticket number'
+                        )
                         booleanParam(
                             name: 'SRE_APPROVED',
                             defaultValue: true,
