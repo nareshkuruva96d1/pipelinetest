@@ -8,7 +8,7 @@
             }
             stage ('Deploy to Prod') {
                 options {
-                    timeout (time: 30, unit: 'SECONDS')
+                    timeout (time: 60, unit: 'SECONDS')
                 }
                 input {
                     message "Should i continue ??"
